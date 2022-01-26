@@ -1,0 +1,11 @@
+[package]
+name = "turquoise"
+version = "0.0.0"
+authors = ["McKayla Washburn <mckayla@hey.com>"]
+description = "Sort of like teal"
+keywords = []
+license = "MIT"
+homepage = "https://github.com/aslilac/turquoise"
+repository = "https://github.com/aslilac/turquoise"
+documentation = "https://docs.rs/crate/turquoise"
+edition = "2021"
