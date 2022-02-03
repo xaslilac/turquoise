@@ -1,3 +1,5 @@
+use std::fs;
+
 // use std::{fs, io, process};
 
 // fn build() -> io::Result<()> {
@@ -40,9 +42,18 @@
 //     Ok(())
 // }
 
-mod ast;
-mod parser;
+pub mod ast;
+pub mod parser;
 
 fn main() {
-    println!("Hi!");
+    let args = std::env::args().collect::<Vec<_>>();
+    if args.len() != 2 {
+        println!("Usage: trq <file>");
+        return;
+    }
+
+    let file = String::from(&args[1]);
+    let content = fs::read(file).expect("Could not read file");
+    let content = String::from_utf8(content).expect("Could not parse file as UTF-8");
+    println!("{}", content);
 }
