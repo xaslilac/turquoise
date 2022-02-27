@@ -48,7 +48,7 @@ pub mod parser;
 fn main() {
     let args = std::env::args().collect::<Vec<_>>();
     if args.len() != 2 {
-        println!("Usage: trq <file>");
+        println!("Usage: tqc <file>");
         return;
     }
 
