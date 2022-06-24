@@ -9,3 +9,7 @@ homepage = "https://github.com/aslilac/turquoise"
 repository = "https://github.com/aslilac/turquoise"
 documentation = "https://docs.rs/crate/turquoise"
 edition = "2021"
+
+[[bin]]
+name = "take"
+path = "./src/main.rs"

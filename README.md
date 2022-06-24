@@ -1,4 +1,4 @@
-<h1 align="center" style="color: #67D1D1"><img alt="Turquoise" src="media/turquoise.svg" height="30" /></h1>
+<h1 align="center" style="color: #67D1D1"><img alt="Turquoise" src="media/turquoise.svg" height="100" /></h1>
 
 A long long time ago I tried to make a programming language called Teal. It was basically
 just a lot of `input.replace(/some_regular_expression/, 'something_else')` type things
