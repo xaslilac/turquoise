@@ -1,3 +1,3 @@
-struct Puppy {
-  name: String
-}
+struct Puppy
+	name: String;
+;

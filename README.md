@@ -1,4 +1,6 @@
-<h1 align="center" style="color: #67D1D1"><img alt="Turquoise" src="media/turquoise.svg" height="100" /></h1>
+<h1 align="center">
+<img alt="Turquoise" src="https://cdn.mckayla.cloud/-/e95ffa0bde554ba19b0f7c2c59dbc073/turquoise.svg" height="100" />
+</h1>
 
 A long long time ago I tried to make a programming language called Teal. It was basically
 just a lot of `input.replace(/some_regular_expression/, 'something_else')` type things
@@ -10,9 +12,9 @@ a native executable). It's a little more rigourous that just hap-hazard text tra
 and actually does the whole "lexing" and "AST" thing that's so popular these days.
 
 ```rust
-// main.b
+// main.q
 fn main() {
-	println("Hello sailor!");
+  println("Hello sailor!");
 }
 ```
 
