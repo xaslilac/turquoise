@@ -10,6 +10,11 @@ fn hello_to::string overload friend::Friend:
 fn hello_eventually::string async id::string:
 	hello db.get_name(id).await;;
 
-fn hello_forever::string channel (id::string):
+fn hello_forever::string channel (name::string):
 	for ...:
-		yield hello db.get_name(id).await;;;
+		yield hello name;;;
+
+fn hello_forever::string async channel (id::string):
+	let name = db.get_name(id).await;
+	for ...:
+		yield hello name;;;
