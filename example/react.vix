@@ -1,0 +1,95 @@
+# I kind of prefer // for comments but I'm using CoffeeScript for syntax highlighting
+
+import "react"::React
+# -> import React from "react";
+import type "react"::{ ComponentPropsWithoutRef }
+# -> import type { ComponentPropsWithoutRef } from "react";
+import "react"::{ type FC, useCallback, useState }
+# -> import { type FC, useCallback, useState } from "react";
+import "react-dom"::ReactDOM
+# -> import ReactDOM from "react-dom";
+# import "react-dom"::* as ReactDOM
+# # -> import * as ReactDOM from "react-dom";
+# import "react-dom"::{ render }
+# # -> import { render } from "react-dom";
+# import "react-dom"::(ReactDOM, { render })
+# # -> import ReactDOM, { render } from "react-dom";
+# import "react-dom"::(* as ReactDOM, ReactDOM, { render })
+# # -> import * as ReactDOM from "react-dom";
+# # -> import ReactDOM, { render } from "react-dom"; -- Transforms into 2 imports
+import "succulent"::{ is, $string }
+# -> import { is, $string } from "succulent";
+import "tsconfig-paths/register"
+# -> import "tsconfig-paths/register";
+
+import "^/components"::{ Card, Row }
+# -> import { Card, Row } from "../../components"; -- Path resolved at compile time
+import "./hullo"::hi
+# -> import hi frmo "./hullo";
+
+pub interface AppProps extends ComponentPropsWithoutRef<"div"> {
+	onIncrement? count: number -> void
+	required -> void
+	requiredThatTakesArgs arg: unknown -> void
+}
+# -> export interface AppProps extends ComponentPropsWithoutRef<"div"> {
+# -> 	onIncrement?(count: number): void;
+# -> 	required(): void;
+# -> 	requiredThatTakesArgs(arg: unknown): void;
+# -> }
+
+pub fn App props: AppProps -> {
+	let [clicks, setClicks] = useState 0
+
+	let onClick = useCallback
+		|| => setClicks |clicks| => clicks + 1,
+		[],
+
+	<div>
+		<h1>This is my app!</h1>
+		<p>The button below has been clicked {clicks} time(s).</p>
+		<button {onClick}>Click me!</button>
+	</div>
+}
+# -> export function App(props: AppProps) {
+# -> 	let [clicks, setClicks] = useState(0);
+# ->
+# -> 	let onClick = useCallback(
+# -> 		() => setClicks((clicks) => clicks + 1),
+# -> 		[],
+# -> 	);
+# ->
+# -> 	return <div>
+# -> 		<h1>This is my app!</h1>
+# -> 		<p>The button below has been clicked {clicks} time(s).</p>
+# -> 		<button onClick={onClick}>Click me!</button>
+# -> 	</div>;
+# -> }
+
+let x = 0
+# -> const x = 0;
+mut y = 1
+# -> let y = 1;
+
+println x + y
+# -> println(x + y)
+
+pub fn async getFriend name: string -> Promise<number> {
+	new Promise<number> |resolve, reject| => {
+		Database.getFriend name, |error, result| => {
+			guard reject error if error
+			resolve result
+		}
+	}
+}
+# -> async function getFriend(name: string): Promise<number> {
+# -> 	return new Promise<number>((resolve, reject) => {
+# -> 		Database.getFriend(name, (error, result) => {
+# -> 			if (error) {
+# -> 				reject(error);
+# -> 				return;
+# -> 			}
+# -> 			resolve(result);
+# -> 		});
+# -> 	});
+# -> }
